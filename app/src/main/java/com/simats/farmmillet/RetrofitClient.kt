@@ -12,7 +12,8 @@ object RetrofitClient {
     
     // Default BASE_URL for local development. 
     // In production, this would be your server URL.
-    private var BASE_URL = "http://192.168.0.15/Millets/api/"
+    private var BASE_URL = "http://172.25.50.98/Millets1/api/"
+
     
     private var authToken: String? = null
 
@@ -41,6 +42,7 @@ object RetrofitClient {
     }
 
     private val okHttpClient = OkHttpClient.Builder()
+
         .addInterceptor(authInterceptor)
         .addInterceptor(loggingInterceptor)
         .connectTimeout(30, TimeUnit.SECONDS)

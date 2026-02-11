@@ -49,7 +49,7 @@ fun FarmerProfileScreen(navController: NavController) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     var fullName by remember { mutableStateOf("") }
-    var mobileNumber by remember { mutableStateOf("") }
+    var mobile by remember { mutableStateOf("") }
     var emailId by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var street by remember { mutableStateOf("") }
@@ -89,7 +89,7 @@ fun FarmerProfileScreen(navController: NavController) {
             Spacer(modifier = Modifier.height(16.dp))
             OutlinedTextField(value = fullName, onValueChange = { fullName = it }, label = { Text("Full Name") }, modifier = Modifier.fillMaxWidth(), keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next), enabled = !isLoading)
             Spacer(modifier = Modifier.height(16.dp))
-            OutlinedTextField(value = mobileNumber, onValueChange = { mobileNumber = it }, label = { Text("Mobile Number") }, modifier = Modifier.fillMaxWidth(), keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next), enabled = !isLoading)
+            OutlinedTextField(value = mobile, onValueChange = { mobile = it }, label = { Text("Mobile Number") }, modifier = Modifier.fillMaxWidth(), keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next), enabled = !isLoading)
             Spacer(modifier = Modifier.height(16.dp))
             OutlinedTextField(value = emailId, onValueChange = { emailId = it }, label = { Text("Email ID") }, modifier = Modifier.fillMaxWidth(), keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next), enabled = !isLoading)
             Spacer(modifier = Modifier.height(16.dp))
@@ -132,7 +132,7 @@ fun FarmerProfileScreen(navController: NavController) {
                             val request = FarmerRegisterRequest(
                                 name = fullName,
                                 email = emailId,
-                                mobile = mobileNumber,
+                                mobile = mobile,
                                 password = password,
                                 street = street,
                                 city = city,

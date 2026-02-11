@@ -27,7 +27,7 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AddMilletSupplyScreen(navController: NavController) {
+fun AddMillets1upplyScreen(navController: NavController) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     var milletType by remember { mutableStateOf("") }
@@ -262,6 +262,6 @@ fun DateField(label: String, date: String, onDateChange: (String) -> Unit) {
 }
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun AddMilletSupplyScreenPreview() {
-    AddMilletSupplyScreen(navController = NavController(LocalContext.current))
+fun AddMillets1upplyScreenPreview() {
+    AddMillets1upplyScreen(navController = NavController(LocalContext.current))
 }

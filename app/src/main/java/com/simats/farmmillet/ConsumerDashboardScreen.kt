@@ -98,7 +98,7 @@ private fun HeaderCard(navController: NavController) {
             val welcomeName = if (userName.isEmpty()) "User" else userName
             Text("Hello, $welcomeName", style = MaterialTheme.typography.headlineSmall, color = Color.White, fontWeight = FontWeight.Bold)
             Spacer(modifier = Modifier.height(8.dp))
-            Text("Discover healthy & organic millets directly from farmers.", color = Color.White, style = MaterialTheme.typography.bodyMedium)
+            Text("Discover healthy & organic Millets1 directly from farmers.", color = Color.White, style = MaterialTheme.typography.bodyMedium)
             Spacer(modifier = Modifier.height(16.dp))
             Button(onClick = { navController.navigate(AppRoutes.CONSUMER_MARKETPLACE) }, colors = ButtonDefaults.buttonColors(containerColor = Color.White), shape = RoundedCornerShape(8.dp)) {
                 Text("Shop Now", color = Color(0xFF1FA74A), fontWeight = FontWeight.SemiBold)

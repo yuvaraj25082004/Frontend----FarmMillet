@@ -83,7 +83,7 @@ fun ConsumerRegisterScreen(navController: NavController) {
             )
             
             Text(
-                text = "Access fresh millets directly from farmers",
+                text = "Access fresh Millets1 directly from farmers",
                 color = Color.Gray,
                 fontSize = 14.sp
             )
@@ -251,9 +251,8 @@ fun ConsumerRegisterScreen(navController: NavController) {
                                     if (response.isSuccessful && response.body()?.success == true) {
                                         Toast.makeText(context, "Registration successful!", Toast.LENGTH_SHORT).show()
                                         // Navigate to subscription screen
-                                        navController.navigate(AppRoutes.SUBSCRIPTION) {
-                                            popUpTo(AppRoutes.CONSUMER_REGISTER) { inclusive = true }
-                                        }
+                                        navController.navigate("consumer_verification_code/$email")
+
                                     } else {
                                         Toast.makeText(
                                             context,

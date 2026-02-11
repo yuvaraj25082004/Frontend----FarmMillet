@@ -92,7 +92,7 @@ fun ShgUserProfileScreen(navController: NavController) {
                         Spacer(modifier = Modifier.height(16.dp))
                         InfoRow(icon = Icons.Default.Person, label = "Organization Name", value = TokenManager.getUserName(context))
                         InfoRow(icon = Icons.Default.Email, label = "Email", value = TokenManager.getUserEmail(context))
-                        InfoRow(icon = Icons.Default.Phone, label = "Mobile", value = "N/A")
+                        InfoRow(icon = Icons.Default.Phone, label = "Mobile", value = TokenManager.getUserMobile(context))
                         InfoRow(icon = Icons.Default.LocationOn, label = "Address", value = "${TokenManager.getUserStreet(context)}, ${TokenManager.getUserCity(context)}")
                     }
             }

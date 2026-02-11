@@ -106,6 +106,7 @@ object AppRoutes {
     const val TRACEABILITY_RECORDS = "traceability_records"
     const val SHG_ANALYTICS = "shg_analytics"
 
+    const val RECEIPT_DETAILS = "receipt_details/{paymentId}"
     // Generic routes
     const val LOGIN = "login"
     const val RESET_PASSWORD = "reset_password"

@@ -113,6 +113,7 @@ fun EditProfileScreen(navController: NavController) {
                                     role = "consumer",
                                     city = city,
                                     street = street,
+                                    mobile = "",
                                     pincode = pincode
                                 )
                                 TokenManager.saveUserDetails(context, updatedUser)

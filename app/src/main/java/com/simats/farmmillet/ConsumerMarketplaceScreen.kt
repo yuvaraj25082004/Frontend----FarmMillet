@@ -106,7 +106,7 @@ fun ConsumerMarketplaceScreen(navController: NavController) {
                 OutlinedTextField(
                     value = searchQuery,
                     onValueChange = { searchQuery = it },
-                    label = { Text("Search millets...") },
+                    label = { Text("Search Millets1...") },
                     modifier = Modifier.weight(1f)
                 )
                 IconButton(onClick = { /*TODO*/ }) {

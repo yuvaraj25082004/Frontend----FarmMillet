@@ -142,17 +142,17 @@ fun SummaryMetricCard(label: String, value: String, modifier: Modifier = Modifie
 }
 
 @Composable
-fun SalesByMilletType(milletSales: List<MilletBreakdown>) {
+fun SalesByMilletType(Millets1ales: List<MilletBreakdown>) {
     var expandedItem by remember { mutableStateOf<String?>(null) }
 
     Column {
         Text("Sales by Millet Type", fontWeight = FontWeight.Bold, fontSize = 18.sp)
         Spacer(modifier = Modifier.height(16.dp))
-        if (milletSales.isEmpty()) {
+        if (Millets1ales.isEmpty()) {
             Text("No millet-specific data available", color = Color.Gray, fontSize = 14.sp)
         } else {
-            milletSales.forEach { breakdown ->
-                MilletSalesCard(breakdown.milletType, "${breakdown.totalQuantity.toInt()} kg sold", expandedItem == breakdown.milletType) { 
+            Millets1ales.forEach { breakdown ->
+                Millets1alesCard(breakdown.milletType, "${breakdown.totalQuantity.toInt()} kg sold", expandedItem == breakdown.milletType) { 
                     expandedItem = if (expandedItem == breakdown.milletType) null else breakdown.milletType 
                 }
                 Spacer(modifier = Modifier.height(12.dp))
@@ -162,7 +162,7 @@ fun SalesByMilletType(milletSales: List<MilletBreakdown>) {
 }
 
 @Composable
-fun MilletSalesCard(title: String, subtitle: String, expanded: Boolean, hasDetails: Boolean = false, onClick: () -> Unit) {
+fun Millets1alesCard(title: String, subtitle: String, expanded: Boolean, hasDetails: Boolean = false, onClick: () -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -184,9 +184,9 @@ fun MilletSalesCard(title: String, subtitle: String, expanded: Boolean, hasDetai
                     Column {
                         Divider(modifier = Modifier.padding(vertical = 12.dp))
                         Row {
-                            MilletSaleDetail(label = "Quantity", value = "500 kg", modifier = Modifier.weight(1f))
-                            MilletSaleDetail(label = "Orders", value = "1", modifier = Modifier.weight(1f))
-                            MilletSaleDetail(label = "Revenue", value = "₹225", modifier = Modifier.weight(1f))
+                            Millets1aleDetail(label = "Quantity", value = "500 kg", modifier = Modifier.weight(1f))
+                            Millets1aleDetail(label = "Orders", value = "1", modifier = Modifier.weight(1f))
+                            Millets1aleDetail(label = "Revenue", value = "₹225", modifier = Modifier.weight(1f))
                         }
                     }
                 }
@@ -196,7 +196,7 @@ fun MilletSalesCard(title: String, subtitle: String, expanded: Boolean, hasDetai
 }
 
 @Composable
-fun MilletSaleDetail(label: String, value: String, modifier: Modifier = Modifier) {
+fun Millets1aleDetail(label: String, value: String, modifier: Modifier = Modifier) {
     Column(modifier) {
         Text(label, color = Color.Gray, fontSize = 12.sp)
         Text(value, fontWeight = FontWeight.SemiBold, fontSize = 16.sp)

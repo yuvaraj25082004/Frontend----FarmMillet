@@ -170,7 +170,7 @@ fun PersonalDetailsCard(navController: NavController) {
                 val context = LocalContext.current
                 ProfileInfoRow(Icons.Default.Person, "Full Name", TokenManager.getUserName(context))
                 ProfileInfoRow(Icons.Default.Email, "Email", TokenManager.getUserEmail(context))
-                ProfileInfoRow(Icons.Default.Phone, "Mobile", "N/A")
+                ProfileInfoRow(Icons.Default.Phone, "Mobile", TokenManager.getUserMobile(context))
                 ProfileInfoRow(Icons.Default.LocationOn, "Address", "${TokenManager.getUserStreet(context)}, ${TokenManager.getUserCity(context)}")
             }
         }

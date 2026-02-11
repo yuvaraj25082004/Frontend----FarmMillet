@@ -80,7 +80,9 @@ fun ConsumerVerificationCodeScreen(navController: NavController, email: String?)
                             val response = RetrofitClient.instance.verifyConsumerOTP(OTPVerifyRequest(safeEmail, code))
                             if (response.isSuccessful && response.body()?.success == true) {
                                 Toast.makeText(context, "Verified!", Toast.LENGTH_SHORT).show()
-                                navController.navigate(AppRoutes.CONSUMER_LOGIN)
+                                navController.navigate(AppRoutes.SUBSCRIPTION) {
+                                    popUpTo(AppRoutes.CONSUMER_REGISTER) { inclusive = true }
+                                }
                             } else {
                                 Toast.makeText(context, response.body()?.message ?: "Verification Failed", Toast.LENGTH_SHORT).show()
                             }

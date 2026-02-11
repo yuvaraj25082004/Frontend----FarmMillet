@@ -64,7 +64,7 @@ fun RoleSelectionScreen(navController: NavController) {
 
             RoleCard(
                 title = "Farmer",
-                subtitle = "I grow and sell millets",
+                subtitle = "I grow and sell Millets1",
                 icon = Icons.Filled.Spa,
                 bgColor = Color(0xFFDFF6E5),
                 onClick = { navController.navigate(AppRoutes.FARMER_LOGIN) }

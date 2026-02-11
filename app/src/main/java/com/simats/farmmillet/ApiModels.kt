@@ -33,6 +33,7 @@ data class LoginResponse(
 data class UserData(
     val id: Int,
     val email: String,
+    val mobile: String,
     val role: String,
     val name: String,
     val street: String?,
@@ -289,7 +290,24 @@ data class TransactionResponse(
     val status: String,
     @SerializedName("payment_method") val paymentMethod: String?,
     @SerializedName("created_at") val createdAt: String,
-    @SerializedName("paid_by") val paidBy: String? = null
+    @SerializedName("paid_by") val paidBy: String? = null,
+    @SerializedName("millet_type") val milletType: String? = null
+)
+
+data class ReceiptResponse(
+    val id: Int,
+    @SerializedName("payment_type") val paymentType: String,
+    val amount: Double,
+    val status: String,
+    @SerializedName("payment_method") val paymentMethod: String?,
+    @SerializedName("created_at") val createdAt: String,
+    @SerializedName("farmer_name") val farmerName: String?,
+    @SerializedName("paid_by") val paidBy: String?,
+    @SerializedName("shg_city") val shgCity: String?,
+    @SerializedName("shg_mobile") val shgMobile: String?,
+    @SerializedName("millet_type") val milletType: String?,
+    @SerializedName("quantity_kg") val quantityKg: Double?,
+    @SerializedName("quality_grade") val qualityGrade: String?
 )
 
 data class SHGDashboardResponse(

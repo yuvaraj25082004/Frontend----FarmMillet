@@ -94,7 +94,7 @@ fun OrdersReceivedScreen(navController: NavController) {
                                 val order = filteredOrders[index]
                                 OrderCard(
                                     orderId = "#${order.id}",
-                                    milletType = order.items?.firstOrNull()?.productName ?: "Mixed Millets",
+                                    milletType = order.items?.firstOrNull()?.productName ?: "Mixed Millets1",
                                     quantity = "${order.items?.firstOrNull()?.quantity ?: 0} kg",
                                     price = "₹ ${order.totalAmount.toInt()}",
                                     consumer = order.consumerName ?: "Customer",

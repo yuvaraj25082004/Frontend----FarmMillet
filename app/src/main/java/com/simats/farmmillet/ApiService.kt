@@ -55,6 +55,9 @@ interface ApiService {
     @GET("farmer/dashboard")
     suspend fun getFarmerDashboard(): Response<ApiResponse<FarmerSalesSummaryResponse>>
 
+    @GET("farmer/receipt/{id}")
+    suspend fun getReceiptById(@Path("id") id: Int): Response<ApiResponse<ReceiptResponse>>
+
     @GET("farmer/supply/{id}")
     suspend fun getSupplyById(@Path("id") id: Int): Response<ApiResponse<SupplyResponse>>
 

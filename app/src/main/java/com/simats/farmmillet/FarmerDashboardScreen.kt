@@ -151,7 +151,7 @@ fun QuickActionsSection(navController: NavController) {
         }
         Spacer(modifier = Modifier.height(16.dp))
         Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-            QuickActionCard("Payments", Icons.Default.AccountBalanceWallet, Color.White, Color.Black, Modifier.weight(1f)) { navController.navigate(AppRoutes.PAYMENT_HISTORY) }
+            QuickActionCard("Receipts", Icons.Default.AccountBalanceWallet, Color.White, Color.Black, Modifier.weight(1f)) { navController.navigate(AppRoutes.PAYMENT_HISTORY) }
         }
     }
 }

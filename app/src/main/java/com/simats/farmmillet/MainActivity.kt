@@ -172,7 +172,7 @@ fun AppNavigation(startDestination: String = AppRoutes.WELCOME) {
         composable(AppRoutes.NOTIFICATIONS) { NotificationsScreen(navController) }
         composable(AppRoutes.USER_PROFILE) { UserProfileScreen(navController) }
         composable(AppRoutes.EDIT_PROFILE) { EditProfileScreen(navController) }
-        composable(AppRoutes.ADD_MILLET_SUPPLY) { AddMilletSupplyScreen(navController) }
+        composable(AppRoutes.ADD_MILLET_SUPPLY) { AddMillets1upplyScreen(navController) }
         composable(AppRoutes.MY_SUPPLY_LIST) { MySupplyListScreen(navController) }
         composable(AppRoutes.ORDERS_RECEIVED) { OrdersReceivedScreen(navController) }
         composable(
@@ -182,6 +182,13 @@ fun AppNavigation(startDestination: String = AppRoutes.WELCOME) {
             OrderDetailsScreen(navController, backStackEntry.arguments?.getString("orderId"))
         }
         composable(AppRoutes.PAYMENT_HISTORY) { PaymentHistoryScreen(navController) }
+        composable(
+            route = AppRoutes.RECEIPT_DETAILS,
+            arguments = listOf(navArgument("paymentId") { type = NavType.IntType })
+        ) { backStackEntry ->
+            val paymentId = backStackEntry.arguments?.getInt("paymentId") ?: 0
+            ReceiptDetailsScreen(navController, paymentId)
+        }
         composable(
             route = AppRoutes.LOGISTICS_STATUS,
             arguments = listOf(navArgument("supplyId") { type = NavType.StringType })

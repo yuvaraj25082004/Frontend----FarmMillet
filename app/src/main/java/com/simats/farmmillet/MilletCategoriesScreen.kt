@@ -86,7 +86,7 @@ fun MilletCategoriesScreen(navController: NavController) {
                     colors = CardDefaults.cardColors(containerColor = Color(0xFF1FA74A))
                 ) {
                     Column(modifier = Modifier.padding(20.dp)) {
-                        Text("Discover Millets", style = androidx.compose.material3.MaterialTheme.typography.headlineSmall, color = Color.White, fontWeight = FontWeight.Bold)
+                        Text("Discover Millets1", style = androidx.compose.material3.MaterialTheme.typography.headlineSmall, color = Color.White, fontWeight = FontWeight.Bold)
                         Spacer(modifier = Modifier.height(8.dp))
                         Text("Explore the nutritional powerhouses that have sustained civilizations for thousands of years.", color = Color.White, style = androidx.compose.material3.MaterialTheme.typography.bodyMedium)
                     }

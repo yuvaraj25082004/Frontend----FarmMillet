@@ -45,7 +45,7 @@ fun SubscriptionScreen(navController: NavController) {
         )
 
         Text(
-            text = "Millets Value Chain Platform",
+            text = "Millets1 Value Chain Platform",
             fontSize = 14.sp,
             fontWeight = FontWeight.Bold,
             color = Color(0xFFFFD700),

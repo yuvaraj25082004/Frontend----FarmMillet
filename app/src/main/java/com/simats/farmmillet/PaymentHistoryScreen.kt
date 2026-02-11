@@ -1,6 +1,7 @@
 package com.simats.farmmillet
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -58,7 +59,7 @@ fun PaymentHistoryScreen(navController: NavController) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Payment History", fontWeight = FontWeight.Bold) },
+                title = { Text("My Receipts", fontWeight = FontWeight.Bold) },
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
@@ -93,8 +94,11 @@ fun PaymentHistoryScreen(navController: NavController) {
                 Text("No transactions found", color = Color.Gray)
             } else {
                 LazyColumn(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                    items(transactions) { transaction ->
-                        PaymentTransactionItem(transaction)
+                    val successfulTransactions = transactions.filter { it.status == "success" }
+                    items(successfulTransactions) { transaction ->
+                        PaymentTransactionItem(transaction) {
+                            navController.navigate(AppRoutes.RECEIPT_DETAILS.replace("{paymentId}", transaction.id.toString()))
+                        }
                     }
                 }
             }
@@ -121,14 +125,16 @@ fun TotalEarningsCard(amount: Double) {
 }
 
 @Composable
-fun PaymentTransactionItem(transaction: TransactionResponse) {
+fun PaymentTransactionItem(transaction: TransactionResponse, onClick: () -> Unit) {
     val isCredit = transaction.paymentType == "farmer_payment" || transaction.status == "success"
     val icon = if (isCredit) Icons.AutoMirrored.Filled.TrendingDown else Icons.AutoMirrored.Filled.TrendingUp
     val iconColor = if (isCredit) Color(0xFF1FA74A) else Color(0xFFD32F2F)
     val iconBackgroundColor = if (isCredit) Color(0xFFE8F5E9) else Color(0xFFFFEBEE)
 
     Card(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick),
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White),
         elevation = CardDefaults.cardElevation(0.dp)
@@ -151,7 +157,11 @@ fun PaymentTransactionItem(transaction: TransactionResponse) {
             Spacer(modifier = Modifier.width(16.dp))
             Column(modifier = Modifier.weight(1f)) {
                 Text("TXN-${transaction.id}", fontWeight = FontWeight.SemiBold, fontSize = 16.sp)
-                Text(transaction.createdAt.split(" ")[0], color = Color.Gray, fontSize = 14.sp)
+                Text(
+                    text = "${transaction.createdAt.split(" ")[0]} • ${transaction.milletType ?: "Supply"}", 
+                    color = Color.Gray, 
+                    fontSize = 14.sp
+                )
             }
             Text(
                 text = "₹${transaction.amount.toInt()}",
